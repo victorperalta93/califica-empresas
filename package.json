@@ -1,0 +1,27 @@
+{
+  "name": "califica-empresas",
+  "version": "1.0.0",
+  "description": "Pequeño servicio web como parte de los ejercicios de la asignatura Infraestructura Virtual (19-20)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorperalta93/califica-empresas.git"
+  },
+  "author": "Victor Peralta",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/victorperalta93/califica-empresas/issues"
+  },
+  "homepage": "https://github.com/victorperalta93/califica-empresas#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sqlite": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}

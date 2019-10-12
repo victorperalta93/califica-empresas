@@ -4,6 +4,8 @@ const DB      = require('./model/db')
 const calificaciones = require('./model/calificaciones')
 const empresas       = require('./model/empresas')
 
+const PORT = process.env.PORT || 5000;
+
 const db = new DB('./model/database.sqlite3')
 const calif = new calificaciones(db)
 const empr  = new empresas(db)
@@ -22,25 +24,28 @@ app.post('/crear-empresa',(req,res) => {
 }); 
 
 app.get('/listar-empresas',(req,res) =>{
-    res.send(empr.getAll());
+    empr.getAll(function(tabla){
+        res.send(tabla)
+    });
 });
 
 app.get('/listar-datos',(req,res) =>{
-
+    calif.getAll(function(tabla){
+        res.send(tabla)
+    });
 });
 
 app.post('/add-calif',(req,res) =>{
-
+    res.send(calif.add(req.body.usuario,req.body.empresa,req.body.valor));
 });
 
 app.delete('/rm-calif',(req,res) =>{
-
+    calif.delete(req.body.id);
 });
 
 app.delete('/rm-empresa',(req,res) =>{
-
+    empr.delete(req.body.nombre)
 });
 
-const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () => console.log(`Servidor iniciado en puerto: ${PORT}`));

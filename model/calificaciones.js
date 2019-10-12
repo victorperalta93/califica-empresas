@@ -11,20 +11,36 @@ class Calificaciones{
                         valor INTEGER,
                         FOREIGN KEY(empresa) REFERENCES empresas(nombre)
         )`
+
+        this.db.conn.run(sql,(err) => {
+            if (err) 
+                throw err;
+        });
     }
 
     add(usuario,empresa,valor){
         return this.db.conn.run(`INSERT INTO calificaciones (usuario,empresa,valor) 
-                                VALUES (?,?,?)`,[usuario,empresa,valor])
+                                VALUES (?,?,?)`,[usuario,empresa,valor],(err) =>{
+                                    if(err)
+                                        throw err
+                                })
     }
 
     delete(id){
         return this.db.conn.run('DELETE FROM calificaciones WHERE id=?',
-                                [id])
+                                [id],(err) =>{
+                                    if(err)
+                                        throw err
+                                })
     }
 
-    getAll(){
-        return this.db.conn.all('SELECT * FROM calificaciones')
+    getAll(callback){
+        this.db.conn.all('SELECT * FROM calificaciones',(err, rows) => {
+            if (err) 
+                throw err;
+            else
+                return callback(rows);
+        });
     }
 }
 

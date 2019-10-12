@@ -1,13 +1,28 @@
 const express = require('express');
-const app = express();
+const app     = express();
+const DB      = require('./model/db')
+const calificaciones = require('./model/calificaciones')
+const empresas       = require('./model/empresas')
 
+const db = new DB('./model/database.sqlite3')
+const calif = new calificaciones(db)
+const empr  = new empresas(db)
 
-// crear empresa
-// listar datos
-// añadir calificación
-// borrar calificación
+// crear tablas
+calif.createTable();
+empr.createTable();
+
+// Body parser
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
 app.post('/crear-empresa',(req,res) => {
-    
+    let salida_sql = empr.add(req.body.nombre)
+    res.send(salida_sql); 
+}); 
+
+app.get('/listar-empresas',(req,res) =>{
+    res.send(empr.getAll());
 });
 
 app.get('/listar-datos',(req,res) =>{
@@ -19,6 +34,10 @@ app.post('/add-calif',(req,res) =>{
 });
 
 app.delete('/rm-calif',(req,res) =>{
+
+});
+
+app.delete('/rm-empresa',(req,res) =>{
 
 });
 

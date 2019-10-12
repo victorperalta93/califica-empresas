@@ -23,7 +23,14 @@ class Empresas{
     }
 
     getAll(){
-        return this.db.conn.all('SELECT * FROM empresas')
+        const sql = `SELECT * FROM empresas`
+
+        this.db.conn.all(sql,(err, rows) => {
+            if (err) 
+                throw err;
+            else
+                callback(rows);
+        });
     }
 }
 

@@ -42,6 +42,14 @@ class Calificaciones{
                 return callback(rows);
         });
     }
+
+    actualizar(usuario,empresa,valor){
+        return this.db.conn.run('UPDATE calificaciones SET valor=? WHERE usuario=? AND empresa=?',
+                                [valor,usuario,empresa,],(err) =>{
+                                    if(err)
+                                        throw err
+                                })
+    }
 }
 
 module.exports = Calificaciones

@@ -39,6 +39,10 @@ app.post('/add-calif',(req,res) =>{
     res.send(calif.add(req.body.usuario,req.body.empresa,req.body.valor));
 });
 
+app.put('/actualizar-calif/:usuario/:empresa/:valor', (req,res) =>{
+    res.send(calif.actualizar(req.params.usuario,req.params.empresa,req.params.valor))
+})
+
 app.delete('/rm-calif',(req,res) =>{
     calif.delete(req.body.id);
 });

@@ -18,38 +18,40 @@ empr.createTable();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-app.post('/crear-empresa',(req,res) => {
-    let salida_sql = empr.add(req.body.nombre)
+app.post('/empresa/:nombre',(req,res) => {
+    let salida_sql = empr.add(req.params.nombre)
     res.send(salida_sql); 
 }); 
 
-app.get('/listar-empresas',(req,res) =>{
+app.get('/empresas',(req,res) =>{
     empr.getAll(function(tabla){
         res.send(tabla)
     });
 });
 
-app.get('/listar-datos',(req,res) =>{
+app.get('/datos',(req,res) =>{
     calif.getAll(function(tabla){
         res.send(tabla)
     });
 });
 
-app.post('/add-calif',(req,res) =>{
-    res.send(calif.add(req.body.usuario,req.body.empresa,req.body.valor));
+app.post('/calificacion/:usuario/:empresa/:valor',(req,res) =>{
+    res.send(calif.add(req.params.usuario,req.params.empresa,req.params.valor));
 });
 
-app.put('/actualizar-calif/:usuario/:empresa/:valor', (req,res) =>{
+app.put('/calificacion/:usuario/:empresa/:valor', (req,res) =>{
     res.send(calif.actualizar(req.params.usuario,req.params.empresa,req.params.valor))
 })
 
-app.delete('/rm-calif',(req,res) =>{
-    calif.delete(req.body.id);
+app.delete('/calificacion/:id',(req,res) =>{
+    res.send(calif.delete(req.params.id));
 });
 
-app.delete('/rm-empresa',(req,res) =>{
-    empr.delete(req.body.nombre)
+app.delete('/empresa/:nombre',(req,res) =>{
+    res.send(empr.delete(req.body.nombre));
 });
 
 
 app.listen(PORT, () => console.log(`Servidor iniciado en puerto: ${PORT}`));
+
+module.exports = app;

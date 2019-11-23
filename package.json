@@ -26,6 +26,7 @@
     "sqlite": "^3.0.3"
   },
   "devDependencies": {
+    "mocha": "^6.2.2",
     "nodemon": "^1.19.3",
     "supertest": "^4.0.2"
   }

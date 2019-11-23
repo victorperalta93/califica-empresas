@@ -1,8 +1,3 @@
 language: node_js
 node_js:
 - '12.13'
-deploy:
-  provider: heroku
-  api_key:
-    secure: hiCNLmlyGHsoBoSkV9XmcvGWobWgXtNRxJh56XtH8/bwHG1foTZk2D8O5Tcy7tfhanbpVxBuVWS2EcDKAi/LoA/5Xh+qNVPAD+Pr0PgeRJTh82B9HirEsyXRwh6srr5hgB/hlQKEkWOOJS7DSHorMWqW1HVAreEh+2mb+cSAudIHtB44u/LxsX7kbQ1tz0LX/wX9PFHPZpx7/1AljOLA+j/P/4+HwNexnQ2fNS4Eoe1DfMv2LulhZoqw51lAYAebwPuJ8+3ZWss0CcLqZoslYEHFBymSgbseQLQiPm8PQfChRIgyWJ79fIYCkaUpLGtqjZpRnfCq/y3smJFUlCpjQxZcQBXq6LzOyZ+HVi3PVQpe+YUpGadn8iDTw2/9At2okRv1zLvVugIjd7Cs3pZp0H/yNdL/ixGmjzHav9erV+6DmUpGJoWJtp2Xi2LvtidTJqkGawDGGZRTd215ihW6Bm3Hfgu5h+nHJ9NFLAZ4kM+psCwCX+LDz2L+dQYexFx9F0joOex+b71Ldk1mUOTlH9LECkm37Els7DBcM7ILl/VqOCRQWZc5/eWbvx6Off687aL0oaQmqXDJjEqUgAg9kmQa80QguD63ZVLdmC9qvl9hzDJaWD+v1bfOpNbBO4L+lkBsWkMesnRSjMXJsHKV3SZgVfqDro57474gHaxHl6k=
-  app: aqueous-crag-08286

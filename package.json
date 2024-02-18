@@ -4,7 +4,7 @@
   "description": "Pequeño servicio web como parte de los ejercicios de la asignatura Infraestructura Virtual (19-20)",
   "main": "index.js",
   "engines": {
-    "node": "12.13"
+    "node": "20.11"
   },
   "scripts": {
     "start": "node server.js",
@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/victorperalta93/califica-empresas#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "sqlite": "^3.0.6"
+    "express": "^4.18.2",
+    "sqlite": "^5.1.1"
   },
   "devDependencies": {
-    "mocha": "^10.1.0",
-    "supertest": "^4.0.2"
+    "mocha": "^10.3.0",
+    "supertest": "^6.3.4"
   }
 }

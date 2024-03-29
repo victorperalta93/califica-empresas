@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/victorperalta93/califica-empresas#readme",
   "dependencies": {
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
